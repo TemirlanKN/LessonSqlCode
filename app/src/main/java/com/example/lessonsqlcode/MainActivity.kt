@@ -1,5 +1,6 @@
 package com.example.lessonsqlcode
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -17,27 +18,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
         myDbManager.openDb()
-        val textRes = findViewById<TextView>(R.id.tvTest)
-        val dataList = myDbManager.readDbData()
-        for (item in dataList) {
-            textRes.append(item)
-            textRes.append("\n")
-        }
     }
-    fun onClickSave(view: View) {
-        val textRes = findViewById<TextView>(R.id.tvTest)
-        textRes.text = ""
-        myDbManager.insertToDb(
-            findViewById<EditText>(R.id.edTitle).text.toString(),
-            findViewById<EditText>(R.id.edContent).text.toString()
-        )
-        val dataList = myDbManager.readDbData()
-        for (item in dataList) {
-            textRes.append(item)
-            textRes.append("\n")
-        }
+
+    fun onClickNew(view: View) {
+        val i = Intent(this, EditActivity::class.java)
+        startActivity(i)
     }
 
     override fun onDestroy() {
