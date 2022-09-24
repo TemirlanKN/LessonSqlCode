@@ -23,10 +23,10 @@
         android:layout_marginEnd="8dp"
         android:background="@android:drawable/editbox_background"
         android:ems="10"
+        android:hint="@string/ed_title_hint"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:padding="10dp"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainImageLayoutout" />
@@ -40,9 +40,9 @@
         android:background="@android:drawable/editbox_background"
         android:ems="10"
         android:gravity="top|left"
+        android:hint="@string/ed_desc_hint"
         android:inputType="textMultiLine|textPersonName"
         android:padding="10dp"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edTitle"
         app:layout_constraintStart_toStartOf="@+id/edTitle"
@@ -56,6 +56,7 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:contentDescription="@string/app_name"
+        android:onClick="onClickSave"
         app:backgroundTint="@color/grey"
         app:layout_constraintBottom_toBottomOf="@+id/edDesc"
         app:layout_constraintEnd_toEndOf="@+id/edDesc"
@@ -88,6 +89,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+        <ImageView
+            android:id="@+id/imMainImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:scaleType="centerCrop"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_launcher_foreground"
+            tools:srcCompat="@tools:sample/avatars" />
+
         <ImageButton
             android:id="@+id/imButtonEditImage"
             android:layout_width="wrap_content"
@@ -95,6 +112,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:contentDescription="@string/app_name"
+            android:onClick="onClickChooseImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_menu_edit" />
@@ -111,20 +129,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/ic_menu_delete" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:padding="10dp"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:srcCompat="@tools:sample/avatars" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

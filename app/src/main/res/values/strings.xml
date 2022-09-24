@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LessonSqlCode</string>
+    <string name="ed_title_hint">Header</string>
+    <string name="ed_desc_hint">Description</string>
 </resources>

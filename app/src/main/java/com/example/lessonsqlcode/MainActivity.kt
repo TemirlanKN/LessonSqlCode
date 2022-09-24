@@ -9,7 +9,7 @@ import android.widget.TextView
 import com.example.lessonsqlcode.db.MyDbManager
 
 class MainActivity : AppCompatActivity() {
-    val myDbManager = MyDbManager(this)
+    private val myDbManager = MyDbManager(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,13 +21,15 @@ class MainActivity : AppCompatActivity() {
         myDbManager.openDb()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        myDbManager.closeDb()
+    }
+
     fun onClickNew(view: View) {
         val i = Intent(this, EditActivity::class.java)
         startActivity(i)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        myDbManager.closeDb()
-    }
+
 }
