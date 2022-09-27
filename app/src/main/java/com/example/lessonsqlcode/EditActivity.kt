@@ -26,6 +26,7 @@ class EditActivity : AppCompatActivity() {
         super.onDestroy()
         myDbManager.closeDb()
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edit_activity)
