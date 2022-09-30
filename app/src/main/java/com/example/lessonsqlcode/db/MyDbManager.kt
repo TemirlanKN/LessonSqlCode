@@ -23,14 +23,16 @@ class MyDbManager(context: Context) {
     }
 
     @SuppressLint("Range")
-    fun readDbData() : ArrayList<String> {
-        val dataList = ArrayList<String>()
+    fun readDbData() : ArrayList<ListItem> {
+        val dataList = ArrayList<ListItem>()
         val cursor = db?.query(DbNameClass.TABLE_NAME, null, null,
             null, null, null, null)
         with(cursor) {
             while (this?.moveToNext()!!) {
                 val dataText = cursor?.getString(cursor.getColumnIndex(DbNameClass.COLUMN_NAME_TITLE))
-                dataList.add(dataText.toString())
+                val dataDesc = cursor?.getString(cursor.getColumnIndex(DbNameClass.COLUMN_NAME_CONTENT))
+                val dataUri = cursor?.getString(cursor.getColumnIndex(DbNameClass.COLUMN_NAME_IMAGE_URI))
+                dataList.add(ListItem(dataText.toString(), dataDesc.toString(), dataUri.toString()))
             }
         }
         return dataList

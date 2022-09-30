@@ -13,7 +13,7 @@ import com.example.lessonsqlcode.db.MyDbManager
 
 class MainActivity : AppCompatActivity() {
     private val myDbManager = MyDbManager(this)
-    private val myAdapter = MyAdapter(ArrayList())
+    private val myAdapter = MyAdapter(ArrayList(), this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
